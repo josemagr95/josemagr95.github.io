@@ -5,6 +5,15 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="main.css">
+
+		<style>
+			#video {
+				position: fixed;
+				display: block;
+				height: 120px;
+			}	
+		</style>
+
 	</head>
 
 	<body>
@@ -23,7 +32,7 @@
 			<a href="https://github.com/josemagr95/" target="_blank" rel="noopener">josemagr95</a><br />
 		</div>
 
-		<video id="video" loop crossOrigin="anonymous" playsinline style="display:none">
+		<video id="video" loop muted crossOrigin="anonymous" playsinline style="display:block">
 			<source src="textures/tsunami.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 		</video>
 
@@ -37,7 +46,7 @@
 			import { RoughnessMipmapper } from './jsm/utils/RoughnessMipmapper.js';
 
 			var container, stats, controls;
-			var video, texture, material;
+			var video, videotexture, material;
 			var camera, scene, renderer;
 
 			var startButton = document.getElementById( 'startButton' );
@@ -53,6 +62,8 @@
 				var overlay = document.getElementById( 'overlay' );
 				overlay.remove();
 
+				
+
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
@@ -63,8 +74,19 @@
 
 				video = document.getElementById( 'video' );
 				video.play();
+				console.log(video);
 
-				// texture = new THREE.VideoTexture( video );
+				videotexture = new THREE.VideoTexture( video );
+
+				videotexture.format = THREE.RGBFormat;
+				videotexture.encoding = THREE.sRGBEncoding;
+				videotexture.wrapS = videotexture.wrapT = THREE.ClampToEdgeWrapping;
+        		videotexture.minFilter = THREE.LinearFilter;
+
+				console.log(videotexture);
+
+        		var materialVideo = new THREE.MeshBasicMaterial( { map: videotexture } )
+
 
 				new RGBELoader()
 					.setDataType( THREE.UnsignedByteType )
@@ -94,7 +116,12 @@
 
 							} );
 
-							scene.add( gltf.scene );
+						// AÑADIR OBJETO
+							// gltf.scene.children[2].material = materialVideo;
+							scene.add( gltf.scene);
+
+							var mesh = gltf.scene;
+							console.log(mesh);
 
 							roughnessMipmapper.dispose();
 
