@@ -114,6 +114,11 @@
 
 				controls = new OrbitControls( camera, renderer.domElement );
 				controls.target.set( 0, 0, - 0.2 );
+				controls.enableDamping = false;
+				controls.dampingFactor = 0.1;
+				controls.rotateSpeed = 0.1;
+				controls.zoomSpeed = 0.5;
+				controls.panSpeed = 0.1;
 				controls.update();
 
 				window.addEventListener( 'resize', onWindowResize, false );
