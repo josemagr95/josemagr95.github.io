@@ -1,0 +1,143 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v0.9.35",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "TerrainNode",
+            "rotation" : [
+                -0.707106351852417,
+                0.0008219251758418977,
+                -0.0008219252922572196,
+                -0.7071062326431274
+            ],
+            "scale" : [
+                0.042870618402957916,
+                0.042870618402957916,
+                0.042870618402957916
+            ],
+            "translation" : [
+                -0.009466886520385742,
+                0.2536509335041046,
+                -0.00020968914031982422
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Default",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0,
+                    "texCoord" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 1
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "TerrainMesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "Image_0",
+            "uri" : "Image_0.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 1474,
+            "max" : [
+                76.51388549804688,
+                89.70588684082031,
+                3.2602057456970215
+            ],
+            "min" : [
+                -76.48611450195312,
+                -89.79411315917969,
+                -23.153841018676758
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 1474,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 1474,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 6930,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 17688,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 17688,
+            "byteOffset" : 17688
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 11792,
+            "byteOffset" : 35376
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 13860,
+            "byteOffset" : 47168
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 61028,
+            "uri" : "tsunami.bin"
+        }
+    ]
+}

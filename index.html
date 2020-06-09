@@ -68,7 +68,7 @@
 				document.body.appendChild( container );
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.25, 20 );
-				camera.position.set( 5, 3, 5 );
+				camera.position.set( 6, 4, 6 );
 
 				scene = new THREE.Scene();
 
@@ -81,7 +81,8 @@
 				videotexture.format = THREE.RGBFormat;
 				videotexture.encoding = THREE.sRGBEncoding;
 				videotexture.wrapS = videotexture.wrapT = THREE.ClampToEdgeWrapping;
-        		videotexture.minFilter = THREE.LinearFilter;
+				videotexture.magFilter = THREE.LinearFilter;
+				videotexture.mapping = THREE.EquirectangularReflectionMapping;
 
 				console.log(videotexture);
 
@@ -91,7 +92,7 @@
 				new RGBELoader()
 					.setDataType( THREE.UnsignedByteType )
 					.setPath( 'textures/equirectangular/' )
-					.load( 'spot1Lux.hdr', function ( texture ) {
+					.load( 'royal_esplanade_1k.hdr', function ( texture ) {
 
 						var envMap = pmremGenerator.fromEquirectangular( texture ).texture;
 						pmremGenerator.dispose();
@@ -104,7 +105,7 @@
 						var roughnessMipmapper = new RoughnessMipmapper( renderer );
 
 						var loader = new GLTFLoader().setPath( 'models/gltf/Tsunami/' );
-						loader.load( 'base.gltf', function ( gltf ) {
+						loader.load( 'tsunami.gltf', function ( gltf ) {
 
 							gltf.scene.traverse( function ( child ) {
 
@@ -117,7 +118,8 @@
 							} );
 
 						// AÑADIR OBJETO
-							// gltf.scene.children[2].material = materialVideo;
+							gltf.scene.children[0].material = materialVideo;
+
 							scene.add( gltf.scene);
 
 							var mesh = gltf.scene;
@@ -171,6 +173,7 @@
 				renderer.render( scene, camera );
 
 			}
+
 
 		</script>
 
