@@ -50,6 +50,7 @@
 
 			import { OrbitControls } from './jsm/controls/OrbitControls.js';
 			import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+			import { DRACOLoader } from './jsm/loaders/DRACOLoader.js';
 			import { RGBELoader } from './jsm/loaders/RGBELoader.js';
 			import { RoughnessMipmapper } from './jsm/utils/RoughnessMipmapper.js';
 
@@ -84,7 +85,6 @@
 				video.play();
 				audio = document.getElementById( 'audio' );
 				audio.play();
-				console.log(video);
 
 				videotexture = new THREE.VideoTexture( video );
 
@@ -113,30 +113,49 @@
 
 						var roughnessMipmapper = new RoughnessMipmapper( renderer );
 
-						var loader = new GLTFLoader().setPath( 'models/gltf/Tsunami/' );
-						loader.load( 'tsunami_v7.gltf', function ( gltf ) {
+						// Instantiate a loader
+						var loader = new GLTFLoader();
 
-							gltf.scene.traverse( function ( child ) {
+						// Optional: Provide a DRACOLoader instance to decode compressed mesh data
+						var dracoLoader = new DRACOLoader();
+						dracoLoader.setDecoderPath( './js/libs/draco/' );
+						loader.setDRACOLoader( dracoLoader );
 
-								if ( child.isMesh ) {
+						// Load a glTF resource
+						loader.load(
+							// resource URL
+							'models/gltf/Tsunami/tsunami_v7.gltf',
+							// called when the resource is loaded
+							function ( gltf ) {
 
-									roughnessMipmapper.generateMipmaps( child.material );
+								gltf.scene.children[0].material = materialVideo;
 
-								}
+								scene.add( gltf.scene );
 
-							} );
+								var mesh = gltf.scene;
+								console.log(mesh);
 
-						// AÑADIR OBJETO
-							gltf.scene.children[0].material = materialVideo;
+								gltf.animations; // Array<THREE.AnimationClip>
+								gltf.scene; // THREE.Group
+								gltf.scenes; // Array<THREE.Group>
+								gltf.cameras; // Array<THREE.Camera>
+								gltf.asset; // Object
 
-							scene.add( gltf.scene);
+							},
+							// called while loading is progressing
+							function ( xhr ) {
 
-							var mesh = gltf.scene;
-							console.log(mesh);
+								console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-							roughnessMipmapper.dispose();
+							},
+							// called when loading has errors
+							function ( error ) {
 
-						} );
+								console.log( 'An error happened' );
+
+							}
+						);
+
 
 					} );
 
