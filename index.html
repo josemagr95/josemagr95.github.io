@@ -36,6 +36,10 @@
 			<source src="textures/tsunami-rotated-mirror.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 		</video>
 
+		<video id="audio" loop crossOrigin="anonymous" playsinline style="display:none">
+			<source src="textures/audio.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+		</video>
+
 		<script type="module">
 
 			import * as THREE from './build/three.module.js';
@@ -46,7 +50,7 @@
 			import { RoughnessMipmapper } from './jsm/utils/RoughnessMipmapper.js';
 
 			var container, stats, controls;
-			var video, videotexture, material;
+			var video, audio, videotexture, material;
 			var camera, scene, renderer;
 
 			var startButton = document.getElementById( 'startButton' );
@@ -74,6 +78,8 @@
 
 				video = document.getElementById( 'video' );
 				video.play();
+				audio = document.getElementById( 'audio' );
+				audio.play();
 				console.log(video);
 
 				videotexture = new THREE.VideoTexture( video );
