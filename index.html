@@ -54,6 +54,10 @@
 				height: 120px;
 			}	
 
+			.container {
+				z-index: 2;
+			}
+
 			body {
 				background-color: orangered;
 			}
@@ -66,12 +70,29 @@
 			width: 100px;
 			height: 100px;
 			cursor: pointer;
+			z-index: 51;
+			}
+
+			canvas{
+				position: fixed;
+				z-index: 0;
+				left: 0px;
+				top: 0px;
+				outline: none; 
+				border: none; 
+				overflow: hidden;
+			}
+
+			*:focus{ 
+				outline: none; 
+				border: none; 
 			}
 		</style>
 
 	</head>
 
 	<body class="dark-theme">
+		
 		<div class="container">
             <header class="header">
     <span class="header__inner">
@@ -92,15 +113,17 @@
         </span>
     </span>
 </header>
-
+	
 
             <div class="content">
                 
     <main aria-role="main">
         <div>
-            <h1>Simulación Tsunami</h1>
-				<p>Data asset: Talcahuano, Chile.</p>
+			<h1 class="titulo-simulacion">Simulación Tsunami</h1>
+			
+				<p class="subtitulo-simulacion">Data asset: Talcahuano, Chile.</p>
 				<div id="canvas"></div>
+				
 				<h1  class="texto">Click para Iniciar</h1>
 
 				<svg id="startButton" viewbox="0 0 140 140">
@@ -213,9 +236,9 @@
 			function init() {
 
 				canvas = document.createElement( 'div' );
-				document.querySelector("#canvas").appendChild( canvas );
-				var visualizador = document.getElementById( 'canvas' );
-				visualizador.remove();
+				var elem = document.getElementById('canvas');
+				console.log(elem)
+				elem.appendChild( canvas );
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.25, 20 );
 				camera.position.set( 7, 4, 7 );
