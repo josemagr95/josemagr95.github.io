@@ -237,7 +237,6 @@
 
 				canvas = document.createElement( 'div' );
 				var elem = document.getElementById('canvas');
-				console.log(elem)
 				elem.appendChild( canvas );
 
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.25, 20 );
@@ -295,7 +294,6 @@
 								scene.add( gltf.scene );
 
 								var mesh = gltf.scene;
-								console.log(mesh);
 
 								gltf.animations; // Array<THREE.AnimationClip>
 								gltf.scene; // THREE.Group
