@@ -87,11 +87,86 @@
 				outline: none; 
 				border: none; 
 			}
+
+			.controles {
+				z-index: 10;
+    			position: absolute;
+				top: 10px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			.controles svg {
+				width: 50px;
+    			height: 50px;
+				display: none;
+			}
+
+			.helper {
+				position: absolute;
+				left: 10%;
+				top: 10%;
+				display: none;				
+			}
+
+			.helper h6{
+				line-height: 0;
+			}
 		</style>
 
 	</head>
 
 	<body class="dark-theme">
+		<div class="helper">
+			<h4>Controles</h4>
+			<h6>ROTAR: Click Izquierdo</h6>
+			<h6>MOVER: Click Derecho</h6>
+			<h6>ZOOM: Rueda Mouse</h6>
+		</div>
+
+		<div class="controles">
+			<svg id="startButton" class="controles-start" viewbox="0 0 140 140">
+				<circle cx="70" cy="70" r="65" style="fill:#fff;stroke:#ddd"/>
+				<polygon id="shape" points="50,40 100,70 100,70 50,100, 50,40" style="fill:#aaa;">
+					<animate 
+					id="animate_to_stop" 
+					begin="indefinite" 
+					fill="freeze" 
+					attributeName="points" 
+					dur="500ms" 
+					to="45,45 95,45 95,95, 45,95 45,45"
+					keySplines="
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1"
+					keyTimes="0;0.22;0.33;0.55;0.66;0.88;1" 
+					calcMode="spline"
+					/>
+					
+					<animate 
+					id="animate_to_play" 
+					begin="indefinite" 
+					fill="freeze" 
+					attributeName="points" 
+					dur="500ms" 
+					to="50,40 100,70 100,70 50,100, 50,40" 
+					keySplines="
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1; 
+						0.1 0.8 0.2 1"
+					keyTimes="0;0.22;0.33;0.55;0.66;0.88;1" 
+					calcMode="spline"
+					/>
+				</polygon>
+				</svg>
+
+		</div>
 		
 		<div class="container">
             <header class="header">
@@ -204,7 +279,7 @@
 		</video>
 
 		<video id="audio" loop crossOrigin="anonymous" playsinline style="display:none">
-			<!-- <source src="textures/audio.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'> -->
+			<source src="textures/audio-tsunami.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 		</video>
 
 		<script type="text/javascript" src="./bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
@@ -244,8 +319,7 @@
 
 				video = document.getElementById( 'video' );
 				video.play();
-				audio = document.getElementById( 'audio' );
-				audio.play();
+				video.pause();
 
 				videotexture = new THREE.VideoTexture( video );
 

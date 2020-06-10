@@ -10,9 +10,22 @@ $('svg').click(function() {
     $(".titulo-simulacion").hide();
     $(".subtitulo-simulacion").hide();
     $("footer").hide();
-    $(".subtitulo-simulacion").hide();
-    $("#startButton").hide();
+    $("svg").hide();
+    $(".controles-start").show();
+    $(".helper").show();
+    var video = document.getElementById( 'video' );
+    video.play();
+    var audio = document.getElementById( 'audio' );
+    audio.play();
   }
+
+  if (playing == false) {
+    var video = document.getElementById( 'video' );
+    video.pause();
+    var audio = document.getElementById( 'audio' );
+    audio.pause();
+  }
+
 
   
   
