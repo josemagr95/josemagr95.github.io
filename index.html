@@ -122,7 +122,7 @@
 			<h1 class="titulo-simulacion">Simulación Tsunami</h1>
 			
 				<p class="subtitulo-simulacion">Data asset: Talcahuano, Chile.</p>
-				<div id="canvas"></div>
+				<div id="canvas" style="display: none;"></div>
 				
 				<h1  class="texto">Click para Iniciar</h1>
 
@@ -224,14 +224,14 @@
 			var video, audio, videotexture, material;
 			var camera, scene, renderer;
 
-			var startButton = document.getElementById( 'startButton' );
-			startButton.addEventListener( 'click', function () {
+			window.onload = function() {
+
 				console.log("Start");
 
 				init();
 				animate();
+			};
 
-			}, false );
 
 			function init() {
 
