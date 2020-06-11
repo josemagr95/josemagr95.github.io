@@ -88,7 +88,7 @@
 				border: none; 
 			}
 
-			.controles {
+			.controles, .texto-ayuda{
 				z-index: 10;
     			position: absolute;
 				top: 10px;
@@ -111,6 +111,14 @@
 
 			.helper h6{
 				line-height: 0;
+			}
+
+			.texto-ayuda{
+				transform: translate(25%, -15px);
+				display: block;
+				width: 150px;
+				text-align: center;
+				display: none;
 			}
 		</style>
 
@@ -165,7 +173,7 @@
 					/>
 				</polygon>
 				</svg>
-
+				<h6  class="texto-ayuda">Click para Iniciar</h6>
 		</div>
 		
 		<div class="container">

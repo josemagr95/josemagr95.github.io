@@ -1,9 +1,11 @@
 var playing = false;
+console.log(navigator.appName);
 
 $('svg').click(function() {
   playing = !playing;
   var animation = playing ? 'stop' : 'play';
   $('#animate_to_' + animation).get(0).beginElement();
+
   if (playing == true) {
     $(".texto").hide();
     $("#canvas").show();
@@ -12,6 +14,7 @@ $('svg').click(function() {
     $("footer").hide();
     $("svg").hide();
     $(".controles-start").show();
+    $(".texto-ayuda").show();
     $(".helper").show();
     var video = document.getElementById( 'video' );
     video.play();
@@ -26,8 +29,7 @@ $('svg').click(function() {
     audio.pause();
   }
 
-
+ 
   
-  
-  $('.texto').text('Click para ' + (playing ? 'Pausar' : 'Iniciar'));
+  $('.texto, .texto-ayuda').text('Click para ' + (playing ? 'Pausar' : 'Continuar'));
 });
