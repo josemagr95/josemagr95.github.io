@@ -378,7 +378,6 @@
 							function ( gltf ) {
 
 								gltf.scene.children[0].material = materialVideo;
-								console.log(gltf);
 
 								scene.add( gltf.scene );
 
@@ -425,6 +424,12 @@
 				controls.rotateSpeed = 0.1;
 				controls.zoomSpeed = 0.5;
 				controls.panSpeed = 0.1;
+				controls.maxDistance = 8; 
+				controls.minDistance = 5; 
+				controls.maxAzimuthAngle = 0.9; 
+				controls.minAzimuthAngle  = -0.9; 
+				controls.maxPolarAngle = 1.1; 
+				controls.minPolarAngle  = 0.5; 
 				controls.update();
 
 				window.addEventListener( 'resize', onWindowResize, false );
