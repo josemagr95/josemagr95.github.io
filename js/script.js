@@ -22,6 +22,7 @@ $('svg').click(function() {
     video.play();
     var audio = document.getElementById( 'audio' );
     audio.play();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
   }
 
   if (playing == false) {
