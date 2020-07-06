@@ -75,7 +75,10 @@
 			}
 
 			canvas{
-				position: fixed;
+				position: relative;
+				width: 100% !important;
+				margin-left: auto;
+				margin-right: auto;
 				z-index: 0;
 				left: 0px;
 				top: 0px;
@@ -92,7 +95,7 @@
 			.controles, .texto-ayuda{
 				z-index: 10;
     			position: absolute;
-				top: 10px;
+				top: 40px;
 				left: 50%;
 				transform: translateX(-50%);
 			}
@@ -106,7 +109,7 @@
 			.helper {
 				position: absolute;
 				left: 10%;
-				top: 10%;
+				top: 30%;
 				display: none;				
 			}
 
@@ -115,7 +118,7 @@
 			}
 
 			.texto-ayuda{
-				transform: translate(25%, -15px);
+				transform: translate(25%, -38px);
 				display: block;
 				width: 150px;
 				text-align: center;
@@ -151,6 +154,13 @@
 				margin-bottom: 10px !important;
 			}
 
+			.main-content img {
+				margin-left: auto;
+				margin-right: auto;		
+				margin-bottom: 5px !important;
+				max-width: 100% !important;
+			}
+
 			.container .gallery a img {
             float: left;
             width: 33%;
@@ -175,6 +185,22 @@
 
 			a:hover {
 				text-decoration: none;
+			}
+
+			.click-iniciar{
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				top: 50%;
+				z-index: 20;
+			}
+
+			.click-iniciar h1{
+				color: #fff;
+			}
+
+			.titulo-simulacion{
+				font-size: 2.5rem;
 			}
 		</style>
 
@@ -257,58 +283,58 @@
             <div class="content">
                 
     <main aria-role="main">
-        <div>
-			<h1 class="titulo-simulacion">Simulación Tsunami</h1>
+        <div class="main-content">
+			<h1 class="titulo-simulacion">Terremoto de Valparaíso y Viña de 1730</h1>
 			
-				<p class="subtitulo-simulacion">Data asset:
-					<select class="form-control" name="listaData" required>
-						<option value=''>Valparaíso 1730, Chile</option>
-					 </select>
-				</p>
-				<div id="canvas" style="display: none;"></div>
 				
-				<h1  class="texto">Click para Iniciar</h1>
+				
+				<div class="click-iniciar">
 
-				<svg id="startButton" viewbox="0 0 140 140">
-				<circle cx="70" cy="70" r="65" style="fill:#fff;stroke:#ddd"/>
-				<polygon id="shape" points="50,40 100,70 100,70 50,100, 50,40" style="fill:#aaa;">
-					<animate 
-					id="animate_to_stop" 
-					begin="indefinite" 
-					fill="freeze" 
-					attributeName="points" 
-					dur="500ms" 
-					to="45,45 95,45 95,95, 45,95 45,45"
-					keySplines="
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1"
-					keyTimes="0;0.22;0.33;0.55;0.66;0.88;1" 
-					calcMode="spline"
-					/>
-					
-					<animate 
-					id="animate_to_play" 
-					begin="indefinite" 
-					fill="freeze" 
-					attributeName="points" 
-					dur="500ms" 
-					to="50,40 100,70 100,70 50,100, 50,40" 
-					keySplines="
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1; 
-						0.1 0.8 0.2 1"
-					keyTimes="0;0.22;0.33;0.55;0.66;0.88;1" 
-					calcMode="spline"
-					/>
-				</polygon>
-				</svg>
+					<h1  class="texto">Click para Iniciar</h1>
+
+					<svg id="startButton" viewbox="0 0 140 140">
+					<circle cx="70" cy="70" r="65" style="fill:#fff;stroke:#ddd"/>
+					<polygon id="shape" points="50,40 100,70 100,70 50,100, 50,40" style="fill:#aaa;">
+						<animate 
+						id="animate_to_stop" 
+						begin="indefinite" 
+						fill="freeze" 
+						attributeName="points" 
+						dur="500ms" 
+						to="45,45 95,45 95,95, 45,95 45,45"
+						keySplines="
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1"
+						keyTimes="0;0.22;0.33;0.55;0.66;0.88;1" 
+						calcMode="spline"
+						/>
+						
+						<animate 
+						id="animate_to_play" 
+						begin="indefinite" 
+						fill="freeze" 
+						attributeName="points" 
+						dur="500ms" 
+						to="50,40 100,70 100,70 50,100, 50,40" 
+						keySplines="
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1; 
+							0.1 0.8 0.2 1"
+						keyTimes="0;0.22;0.33;0.55;0.66;0.88;1" 
+						calcMode="spline"
+						/>
+					</polygon>
+					</svg>
+				</div>
+				<img class="ss-static" src="/static/img/ss-tsunami.png" alt="Base">
+				<div id="canvas" style="display: none;"></div>
 
 				<main class="post">
 
@@ -317,7 +343,7 @@
 					</div>
 			
 					<article>
-						<h2 class="post-title">Terremoto de Valparaíso y Viña de 1730</a></h2>
+						<!-- <h2 class="post-title"></a></h2> -->
 			
 						<div class="post-content">
 							<h2>Conocimiento científico</h2>
@@ -534,7 +560,7 @@
 				controls.rotateSpeed = 0.1;
 				controls.zoomSpeed = 0.5;
 				controls.panSpeed = 0.1;
-				controls.maxDistance = 8; 
+				controls.maxDistance = 10; 
 				controls.minDistance = 5; 
 				controls.maxAzimuthAngle = 0.9; 
 				controls.minAzimuthAngle  = -0.9; 

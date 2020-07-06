@@ -9,10 +9,11 @@ $('svg').click(function() {
   if (playing == true) {
     $(".texto").hide();
     $("#canvas").show();
-    $(".titulo-simulacion").hide();
+    // $(".titulo-simulacion").hide();
     $(".subtitulo-simulacion").hide();
-    $(".post").hide();
-    $("footer").hide();
+    // $(".post").hide();
+    $(".ss-static").hide();
+    // $("footer").hide();
     $("svg").hide();
     $(".controles-start").show();
     $(".texto-ayuda").show();
