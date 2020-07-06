@@ -35,3 +35,19 @@ $('svg').click(function() {
   
   $('.texto, .texto-ayuda').text('Click para ' + (playing ? 'Pausar' : 'Continuar'));
 });
+
+function myFunction(x) {
+  if (x.matches) { // If media query matches
+        $('svg').click(function() {
+          $(".titulo-simulacion").hide();
+          $(".helper").hide();
+        });
+  } else {
+
+  }
+}
+
+var x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+

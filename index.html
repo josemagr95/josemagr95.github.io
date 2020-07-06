@@ -202,6 +202,21 @@
 			.titulo-simulacion{
 				font-size: 2.5rem;
 			}
+			@media (max-width: 600px) {
+				.texto {
+					font-size: 0.75rem;
+				}
+				svg {
+					width: 65px;
+    				height: 65px;
+				}
+				.click-iniciar{
+					top: 55%;
+				}
+				canvas{
+					height: 450px !important;
+				}
+			}
 		</style>
 
 	</head>
@@ -566,7 +581,24 @@
 				controls.minAzimuthAngle  = -0.9; 
 				controls.maxPolarAngle = 1.1; 
 				controls.minPolarAngle  = 0.5; 
-				controls.update();
+
+				function myFunction(x) {
+				if (x.matches) { // If media query matches
+
+					controls.maxDistance = 15; 
+					controls.minDistance = 8; 
+					controls.update();
+					camera.position.set( 8, 8, 8 );
+				} else {
+					controls.update();
+				}
+				}
+
+				var x = window.matchMedia("(max-width: 700px)")
+				myFunction(x) // Call listener function at run time
+				x.addListener(myFunction) // Attach listener function on state changes
+
+				
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
