@@ -11,6 +11,7 @@ $('svg').click(function() {
     $("#canvas").show();
     $(".titulo-simulacion").hide();
     $(".subtitulo-simulacion").hide();
+    $(".post").hide();
     $("footer").hide();
     $("svg").hide();
     $(".controles-start").show();
