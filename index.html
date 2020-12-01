@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="form by numbers" />
+	<meta name="description" content="form by numbers" />
+	<meta name="keywords"  content="form,numbers" />
+
+    <title>{ form by numbers }</title>
+
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+
+<body>
+
+<div class="texto">
+        <h1></h1>  
+        <h2></h2>
+</div>
+
+<div id="fullpage">
+	<div class="section " id="formbynumbers">
+        <img class="logo" src="img/formbynumbers.svg" alt="logo_formbynumbers">          
+    </div>    
+</div>
+
+
+<script type="text/javascript" src="js/fullpage.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+
+<script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+        verticalCentered: false,
+        licenseKey: '5C38BC7D-960744E4-95CC12D2-0B887589'
+    });
+</script>
+
+<script>
+        $('#formbynumbers').imagesLoaded({ background: true },function() {
+            $('#formbynumbers').fadeIn(1000);	
+            $('.logo').fadeIn(2500);	
+        });
+</script>
+
+<script>
+
+document.addEventListener('DOMContentLoaded',function(event){
+
+  var dataText = [ "G1 X-54.16 Y-40.04 E75.0530 </br> G1 X-37.78 Y-54.16 E77.4800 </br> G1 X-54.16 Y-37.78 E78.3198 </br> G1 X-54.16 Y-37.22 E78.3401 </br> G1 X-37.22 Y-54.16 E79.2087 </br> G1 X-36.65 Y-54.16 E79.2293 </br> G1 X-54.16 Y-36.65 E80.1271 </br> G1 X-54.16 Y-36.09 E80.1474 </br> G1 X-36.09 Y-54.16 E81.0738 </br> G1 X-35.52 Y-54.16 E81.0945 </br> G1 X-54.16 Y-35.52 E82.0502 </br> G1 X-54.16 Y-34.95 E82.0708 </br> G1 X-34.95 Y-54.16 E83.0557 </br> G1 X-34.39 Y-54.16 E83.0760 </br> G1 X-54.16 Y-34.39 E84.0896 </br> G1 X-54.16 Y-33.82 E84.1103 </br> G1 X-33.82 Y-54.16 E85.1531 </br> G1 X-33.26 Y-54.16 E85.1734 </br> G1 X-54.16 Y-33.26 E86.2450 </br> G1 X-54.16 Y-32.69 E86.2657 </br> G1 X-32.69 Y-54.16 E87.3664 </br> G1 X-32.13 Y-54.16 E87.3867 </br> G1 X-54.16 Y-32.13 E88.5162 </br> G1 X-54.16 Y-31.56 E88.5369 </br> G1 X-54.16 Y-40.04 E75.0530 </br> G1 X-54.16 Y-40.04 E75.0530 </br> G1 X-54.16 Y-39.48 E75.0733 </br> G1 X-39.48 Y-54.16 E75.8259 </br> G1 X-38.91 Y-54.16 E75.8466 </br> G1 X-54.16 Y-38.91 E76.6285 </br> G1 X-54.16 Y-38.35 E76.6488 </br> G1 X-38.35 Y-54.16 E77.4594 </br> G1 X-37.78 Y-54.16 E77.4800 </br> G1 X-54.16 Y-37.78 E78.3198 </br> G1 X-54.16 Y-37.22 E78.3401 </br> G1 X-37.22 Y-54.16 E79.2087 </br> G1 X-36.65 Y-54.16 E79.2293 </br> G1 X-54.16 Y-36.65 E80.1271 </br> G1 X-54.16 Y-36.09 E80.1474 </br> G1 X-36.09 Y-54.16 E81.0738 </br> G1 X-35.52 Y-54.16 E81.0945 </br> G1 X-54.16 Y-35.52 E82.0502 </br> G1 X-54.16 Y-34.95 E82.0708 </br> G1 X-34.95 Y-54.16 E83.0557 </br> G1 X-34.39 Y-54.16 E83.0760 </br> G1 X-54.16 Y-34.39 E84.0896 </br> G1 X-54.16 Y-33.82 E84.1103 </br> G1 X-33.82 Y-54.16 E85.1531 </br> G1 X-33.26 Y-54.16 E85.1734 </br> G1 X-54.16 Y-33.26 E86.2450 </br> G1 X-54.16 Y-32.69 E86.2657 </br> G1 X-32.69 Y-54.16 E87.3664 </br> G1 X-32.13 Y-54.16 E87.3867 </br> G1 X-54.16 Y-32.13 E88.5162 </br> G1 X-54.16 Y-31.56 E88.5369"];
+  
+  function typeWriter(text, i, fnCallback) {
+
+    if (i < (text.length)) {
+     document.querySelector("h1").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+
+      setTimeout(function() {
+        typeWriter(text, i + 1, fnCallback)
+      },50);
+    }
+
+    else if (typeof fnCallback == 'function') {
+        setTimeout(fnCallback, 100);
+        }
+    }
+
+   function StartTextAnimation(i) {
+     if (typeof dataText[i] == 'undefined'){
+        setTimeout(function() {
+          StartTextAnimation(0);
+        }, 1500);
+     }
+
+    if (i < dataText[i].length) {
+     typeWriter(dataText[i], 0, function(){
+       StartTextAnimation(i + 1);
+     });
+    }
+  }
+
+  StartTextAnimation(2000);
+});
+
+</script>
+
+<script>
+
+        document.addEventListener('DOMContentLoaded',function(event){
+        
+          var dataText = [ "G1 X-54.16 Y-40.04 E75.0530 </br> G1 X-37.78 Y-54.16 E77.4800 </br> G1 X-54.16 Y-37.78 E78.3198 </br> G1 X-54.16 Y-37.22 E78.3401 </br> G1 X-37.22 Y-54.16 E79.2087 </br> G1 X-36.65 Y-54.16 E79.2293 </br> G1 X-54.16 Y-36.65 E80.1271 </br> G1 X-54.16 Y-36.09 E80.1474 </br> G1 X-36.09 Y-54.16 E81.0738 </br> G1 X-35.52 Y-54.16 E81.0945 </br> G1 X-54.16 Y-35.52 E82.0502 </br> G1 X-54.16 Y-34.95 E82.0708 </br> G1 X-34.95 Y-54.16 E83.0557 </br> G1 X-34.39 Y-54.16 E83.0760 </br> G1 X-54.16 Y-34.39 E84.0896 </br> G1 X-54.16 Y-33.82 E84.1103 </br> G1 X-33.82 Y-54.16 E85.1531 </br> G1 X-33.26 Y-54.16 E85.1734 </br> G1 X-54.16 Y-33.26 E86.2450 </br> G1 X-54.16 Y-32.69 E86.2657 </br> G1 X-32.69 Y-54.16 E87.3664 </br> G1 X-32.13 Y-54.16 E87.3867 </br> G1 X-54.16 Y-32.13 E88.5162 </br> G1 X-54.16 Y-31.56 E88.5369 </br> G1 X-54.16 Y-40.04 E75.0530 </br> G1 X-54.16 Y-40.04 E75.0530 </br> G1 X-54.16 Y-39.48 E75.0733 </br> G1 X-39.48 Y-54.16 E75.8259 </br> G1 X-38.91 Y-54.16 E75.8466 </br> G1 X-54.16 Y-38.91 E76.6285 </br> G1 X-54.16 Y-38.35 E76.6488 </br> G1 X-38.35 Y-54.16 E77.4594 </br> G1 X-37.78 Y-54.16 E77.4800 </br> G1 X-54.16 Y-37.78 E78.3198 </br> G1 X-54.16 Y-37.22 E78.3401 </br> G1 X-37.22 Y-54.16 E79.2087 </br> G1 X-36.65 Y-54.16 E79.2293 </br> G1 X-54.16 Y-36.65 E80.1271 </br> G1 X-54.16 Y-36.09 E80.1474 </br> G1 X-36.09 Y-54.16 E81.0738 </br> G1 X-35.52 Y-54.16 E81.0945 </br> G1 X-54.16 Y-35.52 E82.0502 </br> G1 X-54.16 Y-34.95 E82.0708 </br> G1 X-34.95 Y-54.16 E83.0557 </br> G1 X-34.39 Y-54.16 E83.0760 </br> G1 X-54.16 Y-34.39 E84.0896 </br> G1 X-54.16 Y-33.82 E84.1103 </br> G1 X-33.82 Y-54.16 E85.1531 </br> G1 X-33.26 Y-54.16 E85.1734 </br> G1 X-54.16 Y-33.26 E86.2450 </br> G1 X-54.16 Y-32.69 E86.2657 </br> G1 X-32.69 Y-54.16 E87.3664 </br> G1 X-32.13 Y-54.16 E87.3867 </br> G1 X-54.16 Y-32.13 E88.5162 </br> G1 X-54.16 Y-31.56 E88.5369"];
+          
+          function typeWriter(text, i, fnCallback) {
+        
+            if (i < (text.length)) {
+             document.querySelector("h2").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+        
+              setTimeout(function() {
+                typeWriter(text, i + 1, fnCallback)
+              },50);
+            }
+        
+            else if (typeof fnCallback == 'function') {
+                setTimeout(fnCallback, 100);
+                }
+            }        
+           function StartTextAnimation(i) {
+             if (typeof dataText[i] == 'undefined'){
+                setTimeout(function() {
+                  StartTextAnimation(0);
+                }, 1500);
+             }        
+            if (i < dataText[i].length) {
+             typeWriter(dataText[i], 0, function(){
+               StartTextAnimation(i + 1);
+             });
+            }
+          }        
+          StartTextAnimation(2000);
+        });
+        
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+body{
+  background-color: black;
+}
+
+h1{
+  color: lightgrey;
+  font-size: 0.65rem;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.5;
+  left: 85%;
+}
+
+h2{
+  color: lightgrey;
+  font-size: 0.65rem;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.5;
+  left: 2.5%;
+}
+
+.section{
+  text-align:center;
+  background-size: cover;
+  font-family: "Courier";
+}
+
+#formbynumbers{
+  display: none;
+  background-image: url(../img/bg_formbynumbers.jpg);
+  background-position: center;
+}
+
+.logo{
+  display: none;
+  width: 30%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+}
